@@ -5,8 +5,8 @@ namespace OpenERX.Core.Shared
 {
     public class Feature : CodeName
     {
-        public static Feature User = new(1001, Words.User);
-        public static Feature Profile = new(1001, Words.User);
+        public static Feature User = new(1000, Words.User);
+        public static Feature Profile = new(1001, Words.Profile);
         public static Feature Customer = new(1002, Words.Customer);
         public static Feature Broker = new(1003, Words.Broker);
         public static Feature Store = new(1004, Words.Store);
