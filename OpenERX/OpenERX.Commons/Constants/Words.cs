@@ -22,14 +22,6 @@ namespace OpenERX.Commons.Constants
         public const string Invoice = "Fatura";
         public const string Supplier = "Fornecedor";
         public const string Profile = "Perfil";
-
-<<<<<<< HEAD
         public const string Address = "Endereço";
-=======
-        //public const string Profile = "Perfil";
-        //public const string Profile = "Perfil";
-        //public const string Profile = "Perfil";
-        //public const string Profile = "Perfil";
->>>>>>> 378cd76985892dc07f82296f13a876d208dcc74b
     }
 }
