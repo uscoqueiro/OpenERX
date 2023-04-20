@@ -14,9 +14,5 @@
             this.Code = code;
             this.Name = name;
         }
-
     }
 }
-
-
-

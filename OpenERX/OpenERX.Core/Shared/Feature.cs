@@ -5,6 +5,12 @@ namespace OpenERX.Core.Shared
 {
     public class Feature : CodeName
     {
+        public Feature(int code, string name)
+        {
+            this.Code = code;
+            this.Name = name;
+        }
+
         public static Feature User = new(1000, Words.User);
         public static Feature Profile = new(1001, Words.Profile);
         public static Feature Customer = new(1002, Words.Customer);
@@ -19,11 +25,5 @@ namespace OpenERX.Core.Shared
         public static Feature Group = new(1011, Words.Group);
         public static Feature Transaction = new(1012, Words.Transaction);
         public static Feature Invoice = new(1013, Words.Invoice);
- 
-        public Feature(int code, string name)
-        {
-            this.Code = code;
-            this.Name = name;
-        }
     }
 }
