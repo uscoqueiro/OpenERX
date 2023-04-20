@@ -6,6 +6,7 @@ namespace OpenERX.Test
         [TestMethod]
         public void TestMethod1()
         {
+            Console.WriteLine("Blitzkrieg!");
         }
     }
 }
