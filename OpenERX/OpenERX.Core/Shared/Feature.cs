@@ -18,8 +18,17 @@ namespace OpenERX.Core.Shared
         public static Feature Store = new(1004, Words.Store);
         public static Feature Supplier = new(1005, Words.Supplier);
         public static Feature Item = new(1006, Words.Item);
+
+        //Pedido de Compra e Venda
         public static Feature Order = new(1007, Words.Order);
+        public static Feature OrderItem = new(100701, Words.Order);
+
+
+        //Entrada e Saída de Estoque
         public static Feature Movement = new(1008, Words.Movement);
+        public static Feature MovementItem = new(100801, Words.Movement);
+
+
         public static Feature Status = new(1009, Words.Status);
         public static Feature Attribute = new(1010, Words.Attribute);
         public static Feature Group = new(1011, Words.Group);
