@@ -1,5 +1,5 @@
-﻿using OpenERX.Commons.Constants;
-using OpenERX.Commons.Types;
+﻿using OpenERX.Commons.Languages;
+using OpenERX.Commons.Types.Generics;
 
 namespace OpenERX.Core.Shared
 {

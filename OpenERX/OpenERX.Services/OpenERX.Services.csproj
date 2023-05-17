@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OpenERX.Commons\OpenERX.Commons.csproj" />
+    <ProjectReference Include="..\OpenERX.Core\OpenERX.Core.csproj" />
+    <ProjectReference Include="..\OpenERX.Repositories\OpenERX.Repositories.csproj" />
+  </ItemGroup>
+
 </Project>

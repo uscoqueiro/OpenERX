@@ -1,4 +1,4 @@
-﻿using OpenERX.Commons.Types;
+﻿using OpenERX.Commons.Types.Generics;
 
 namespace OpenERX.Commons.Results
 {

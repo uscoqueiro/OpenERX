@@ -1,4 +1,4 @@
-﻿namespace OpenERX.Commons.Types
+﻿namespace OpenERX.Commons.Types.Generics
 {
     public class KeyValue
     {
@@ -8,21 +8,21 @@
 
         public KeyValue()
         {
-            this.Values = new List<KeyValue>();
+            Values = new List<KeyValue>();
         }
 
         public KeyValue(string key, string value)
         {
-            this.Values = new List<KeyValue>();
-            this.Key = key;
-            this.Value = value;
+            Values = new List<KeyValue>();
+            Key = key;
+            Value = value;
         }
 
         public KeyValue(string key, string value, IList<KeyValue>? values)
         {
-            this.Key = key;
-            this.Value = value;
-            this.Values = values ?? new List<KeyValue>();
+            Key = key;
+            Value = value;
+            Values = values ?? new List<KeyValue>();
         }
     }
 }
