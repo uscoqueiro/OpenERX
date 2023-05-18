@@ -1,8 +1,4 @@
-﻿// COMPANY: Ajinsoft
-// AUTHOR: Uilan Coqueiro
-// DATE: 2023-05-17
-
-
+﻿ 
 using OpenERX.Commons.Credentials;
 using OpenERX.Commons.Params;
 using OpenERX.Commons.Results;
@@ -16,10 +12,8 @@ namespace OpenERX.Services.Customers
     {
         private readonly ICustomerRepository customerRepository;
 
-
         public CustomerService(
-        ICustomerRepository customerRepository
-
+            ICustomerRepository customerRepository
         )
         {
             this.customerRepository = customerRepository;
@@ -32,25 +26,20 @@ namespace OpenERX.Services.Customers
 
             try
             {
-
                 var model = await Customer.CreateAsync(
-                createParams,
-                credential,
-                this);
+                    createParams,
+                    credential,
+                    this);
 
                 if (this.HasErrors())
                     return null;
 
                 await this.customerRepository.InsertAsync(model);
 
-
-
                 return new CustomerResult(model);
-
             }
             catch (Exception e)
             {
-
                 return null;
             }
         }
@@ -61,19 +50,19 @@ namespace OpenERX.Services.Customers
 
             try
             {
- 
+
                 var model = await this.customerRepository.GetAsync(credential.AccountCode, id);
- 
+
                 await model.UpdateAsync(
-                updateParams,
-                credential, 
-                this);
+                    updateParams,
+                    credential,
+                    this);
 
                 if (this.HasErrors())
                     return null;
 
                 await this.customerRepository.UpdateAsync(model);
- 
+
                 return new CustomerResult(model);
             }
             catch (Exception e)
@@ -89,11 +78,11 @@ namespace OpenERX.Services.Customers
 
             try
             {
-        
+
 
                 var model = await this.customerRepository.GetAsync(credential.AccountCode, id);
 
-          
+
 
                 model.UpdateStatus(statusParams, credential, this);
 
@@ -101,7 +90,7 @@ namespace OpenERX.Services.Customers
                     return null;
 
                 await this.customerRepository.UpdateAsync(model);
-                 
+
                 return new CustomerResult(model);
             }
             catch (Exception e)
@@ -116,7 +105,7 @@ namespace OpenERX.Services.Customers
 
             try
             {
-                
+
                 if (deleteParams?.Ids == null)
                     return null;
 
@@ -129,9 +118,9 @@ namespace OpenERX.Services.Customers
                 {
                     var model = await this.customerRepository.GetAsync(credential.AccountCode, id);
 
-    
+
                     await this.customerRepository.UpdateAsync(model);
-                    
+
 
                     result.Success++;
                 }
@@ -143,24 +132,23 @@ namespace OpenERX.Services.Customers
                 return null;
             }
         }
-
-    
+ 
         public async Task<CustomerResult> GetAsync(Guid id)
         {
             var credential = new Credential();
 
             try
             {
-            
+
 
                 var model = await this.customerRepository.GetAsync(credential.AccountCode, id);
 
-             
+
                 return new CustomerResult(model);
             }
             catch (Exception e)
             {
- 
+
                 return null;
             }
         }

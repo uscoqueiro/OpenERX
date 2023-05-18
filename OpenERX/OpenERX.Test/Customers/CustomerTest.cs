@@ -1,20 +1,57 @@
+using System.Text;
 using OpenERX.Core.Customers;
 
 namespace OpenERX.Test.Customers
 {
     [TestClass]
-    public class CustomerTest: Dependency
+    public class CustomerTest : Dependency
     {
         [TestMethod]
-        public async void CreateAsync()
+        public async Task CustomerCreateAsync()
         {
-            var customer = new CustomerParams
+            var createParams = new CustomerParams
             {
-                
             };
+
+
+            //var result = await customerService.CreateAsync(createParams);
+
+            var result = await customerService.CreateAsync(createParams);
+
+            if (customerService.HasErrors())
+            {
+                var sb = new StringBuilder();
+                foreach (var error in customerService.Errors)
+                {
+                    sb.AppendLine(error.Text);
+                }
  
-            var result = await customerService.CreateAsync(customer);
+                throw new Exception(sb.ToString());
+            }
+
+            
+ 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         [TestMethod]
@@ -22,7 +59,7 @@ namespace OpenERX.Test.Customers
         {
             var customer = new CustomerParams
             {
-                
+
             };
 
             var result = await customerService.UpdateAsync(new Guid(), customer);
@@ -39,7 +76,7 @@ namespace OpenERX.Test.Customers
         [TestMethod]
         public async void List()
         {
-            
+
         }
 
     }

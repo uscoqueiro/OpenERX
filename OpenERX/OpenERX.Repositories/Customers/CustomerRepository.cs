@@ -1,8 +1,5 @@
-﻿// COMPANY: Ajinsoft
-// AUTHOR: Uilan Coqueiro
-// DATE: 2023-05-17
-
-
+﻿ 
+using System.Data.SqlClient;
 using OpenERX.Core.Customers;
 using OpenERX.Repositories.Shared.Sql;
 
@@ -14,7 +11,11 @@ namespace OpenERX.Repositories.Customers
 
         public CustomerRepository(SqlConnectionProvider connectionProvider)
         {
- 
+
+            //SqlDataAdapter da = new SqlDataAdapter();
+            //SqlConnection cn = new SqlConnection();
+            //cn.Open();
+            //cn.OpenAsync();
         }
  
         public Task<Customer> InsertAsync(Customer customer)

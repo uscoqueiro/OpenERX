@@ -1,12 +1,6 @@
 ﻿
 using OpenERX.Commons.Credentials;
-using OpenERX.Commons.Functions;
 using OpenERX.Commons.Results;
-using OpenERX.Commons.Types.Addresses;
-using OpenERX.Commons.Types.Fields;
-using OpenERX.Commons.Types.Phones;
-using OpenERX.Commons.Types.Sites;
-using OpenERX.Core.Shared;
 
 namespace OpenERX.Core.Customers
 {
@@ -17,6 +11,19 @@ namespace OpenERX.Core.Customers
         Credential credential,
         IResultService resultService)
         {
+            if (createParams is null)
+                resultService.AddMessage(new ResultMessage(ResultMessageTypes.Error, "Parâmentros Inválidos"));
+ 
+            if (string.IsNullOrWhiteSpace(createParams?.Name))
+                resultService.AddMessage(new ResultMessage(ResultMessageTypes.Error, "Nome Inválido"));
+  
+            if (string.IsNullOrWhiteSpace(createParams?.Identity))
+                resultService.AddMessage(new ResultMessage(ResultMessageTypes.Error, "CPF/CNPJ Inválido"));
+ 
+            if (resultService.HasErrors())
+                return null;
+
+
             var model = new Customer();
 
             //model.SetFullAssociation(credential);

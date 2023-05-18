@@ -4,7 +4,6 @@ namespace OpenERX.Commons.Languages
 {
     public class Words
     {
-    
         public const string Customer = "Cliente";
         public const string Broker = "Agente";
         public const string Store = "Loja";
@@ -20,7 +19,6 @@ namespace OpenERX.Commons.Languages
         public const string Supplier = "Fornecedor";
         public const string Profile = "Perfil";
         public const string Address = "Endereço";
-
         public const string Code = "Código";
         public const string InvalidUser = "Usuário Inválido";
         public const string Anonymous = "Anônimo";
@@ -124,9 +122,7 @@ namespace OpenERX.Commons.Languages
         public const string Support = "Suporte";
         public const string NaturalPerson = "Pessoa Física";
         public const string LegalEntity = "Pessoa Jurídica";
-
-
-    
+ 
         public const string Rg = "RG";
         public const string Passport = "Passaporte";
         public const string Cnpj = "CNPJ";

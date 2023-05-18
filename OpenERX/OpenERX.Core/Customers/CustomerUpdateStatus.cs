@@ -1,7 +1,4 @@
-﻿// COMPANY: Ajinsoft
-// AUTHOR: Uilan Coqueiro
-// DATE: 2023-05-17
-
+﻿ 
 using OpenERX.Commons.Credentials;
 using OpenERX.Commons.Functions;
 using OpenERX.Commons.Params;

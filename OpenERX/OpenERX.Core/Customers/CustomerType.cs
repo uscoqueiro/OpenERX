@@ -1,7 +1,4 @@
-﻿// COMPANY: Ajinsoft
-// AUTHOR: Uilan Coqueiro
-// DATE: 2023-05-17
-
+﻿ 
 using OpenERX.Commons.Types.Generics;
 
 namespace OpenERX.Core.Customers
