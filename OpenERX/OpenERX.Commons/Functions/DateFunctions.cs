@@ -1,10 +1,12 @@
-﻿using System.Globalization;
+﻿using Microsoft.VisualBasic;
+using System.Globalization;
 using System.Text;
 
 namespace OpenERX.Commons.Functions
 {
     public class DateFunctions
     {
+       
         private static string GetDateFormat(string format)
         {
             if (string.IsNullOrWhiteSpace(format))
@@ -17,6 +19,44 @@ namespace OpenERX.Commons.Functions
 
             return stringFormat;
         }
+
+
+        public static DateTime? GetDateTimeNullable(string date)
+        {
+            return GetDateTimeNullable(date, DateFormats.ISO);
+        }
+
+        public static DateTime? GetDateTimeNullable(string date, DateFormats format)
+        {
+            if (string.IsNullOrWhiteSpace(date))
+                return null;
+
+            DateTime? result = null;
+
+            if (format == DateFormats.ISO)
+            {
+                if (DateTime.TryParse(date, out var isoDate))
+                {
+                    result = isoDate;
+                }
+
+                return result;
+            }
+ 
+            date = StringFunctions.GetOnlyNumbers(date);
+
+            var stringFormat = GetDateFormat(format.ToString());
+
+            date = date.Substring(0, stringFormat.Length);
+
+            if (DateTime.TryParseExact(date, stringFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out var outDate))
+            {
+                result = outDate;
+            }
+
+            return result;
+        }
+
 
         public static DateTime? GetDateTimeNullable(string date, string format)
         {

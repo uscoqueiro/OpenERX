@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using OpenERX.Commons.Credentials;
 using OpenERX.Commons.Params;
 using OpenERX.Commons.Results;
@@ -17,7 +17,6 @@ namespace OpenERX.Services.Customers
         )
         {
             this.customerRepository = customerRepository;
-
         }
 
         public async Task<CustomerResult> CreateAsync(CustomerParams createParams)
@@ -51,7 +50,7 @@ namespace OpenERX.Services.Customers
             try
             {
 
-                var model = await this.customerRepository.GetAsync(credential.AccountCode, id);
+                var model = await this.customerRepository.GetAsync(id);
 
                 await model.UpdateAsync(
                     updateParams,
@@ -80,7 +79,7 @@ namespace OpenERX.Services.Customers
             {
 
 
-                var model = await this.customerRepository.GetAsync(credential.AccountCode, id);
+                var model = await this.customerRepository.GetAsync(id);
 
 
 
@@ -116,12 +115,8 @@ namespace OpenERX.Services.Customers
 
                 foreach (var id in deleteParams.Ids)
                 {
-                    var model = await this.customerRepository.GetAsync(credential.AccountCode, id);
-
-
+                    var model = await this.customerRepository.GetAsync(id);
                     await this.customerRepository.UpdateAsync(model);
-
-
                     result.Success++;
                 }
 
@@ -132,23 +127,18 @@ namespace OpenERX.Services.Customers
                 return null;
             }
         }
- 
+
         public async Task<CustomerResult> GetAsync(Guid id)
         {
             var credential = new Credential();
 
             try
             {
-
-
-                var model = await this.customerRepository.GetAsync(credential.AccountCode, id);
-
-
+                var model = await this.customerRepository.GetAsync(id);
                 return new CustomerResult(model);
             }
             catch (Exception e)
             {
-
                 return null;
             }
         }

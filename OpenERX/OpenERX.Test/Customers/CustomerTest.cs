@@ -11,11 +11,11 @@ namespace OpenERX.Test.Customers
         {
             var createParams = new CustomerParams
             {
+                Name = "João da Silva",
+                Identity = "98765432178",
+                TypeCode = 1
             };
-
-
-            //var result = await customerService.CreateAsync(createParams);
-
+ 
             var result = await customerService.CreateAsync(createParams);
 
             if (customerService.HasErrors())
@@ -28,31 +28,8 @@ namespace OpenERX.Test.Customers
  
                 throw new Exception(sb.ToString());
             }
-
-            
- 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
         [TestMethod]
         public async void Update()

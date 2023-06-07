@@ -13,8 +13,7 @@ namespace OpenERX.Commons.Types.Generics
         {
             (Code, Name) = (code, name);
         }
-
-        
+ 
         public override string ToString() => Name;
 
         protected static IEnumerable<T> GetAll<T>() where T : CodeName =>
@@ -23,8 +22,7 @@ namespace OpenERX.Commons.Types.Generics
                                 BindingFlags.DeclaredOnly)
                 .Select(f => f.GetValue(null))
                 .Cast<T>();
-
-
+ 
         protected static T Get<T>(int? code) where T : CodeName
         {
             return GetAll<T>()?.FirstOrDefault(_code => _code == code);
@@ -52,7 +50,7 @@ namespace OpenERX.Commons.Types.Generics
         {
             return _this?.Name;
         }
-
+ 
         public int CompareTo(object other) => Code.CompareTo(((CodeName)other).Code);
     }
 }

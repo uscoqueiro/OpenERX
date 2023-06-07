@@ -1,12 +1,10 @@
 ﻿namespace OpenERX.Repositories.Shared.Sql
 {
-    public class SqlConnectionProvider
+    public class SqlConnectionProvider : ConnectionProvider
     {
-        public string ConnectionString { get; }
-
-        public SqlConnectionProvider(string connectionString)
+ 
+        public SqlConnectionProvider(string connectionString) : base(connectionString)
         {
-            ConnectionString = connectionString;
         }
     }
 }
