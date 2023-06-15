@@ -135,6 +135,10 @@ namespace OpenERX.Services.Customers
             try
             {
                 var model = await this.customerRepository.GetAsync(id);
+
+                this.AddMessage(new ResultMessage(ResultMessageTypes.Error, "Erro Xpto", "1233"));
+
+
                 return new CustomerResult(model);
             }
             catch (Exception e)
