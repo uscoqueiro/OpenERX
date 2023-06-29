@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\OpenERX.Commons\OpenERX.Commons.csproj" />
     <ProjectReference Include="..\OpenERX.Core\OpenERX.Core.csproj" />
     <ProjectReference Include="..\OpenERX.Repositories\OpenERX.Repositories.csproj" />

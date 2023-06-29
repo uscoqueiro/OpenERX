@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OpenERX.Api.Results;
 using OpenERX.Commons.Params;
 using OpenERX.Core.Customers;
@@ -16,6 +17,7 @@ namespace OpenERX.Api.Controllers
         }
 
         [HttpGet("")]
+        //[AllowAnonymous]
         public async Task<IActionResult> Search()
         {
             return this.Ok("Sucesso!");
