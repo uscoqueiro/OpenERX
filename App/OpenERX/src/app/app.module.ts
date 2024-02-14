@@ -7,11 +7,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReversePipe } from './pipes/custom.pipe';
 import { CommonModule } from '@angular/common';
+import { PersonListComponent } from './person/list/list.component';
+import { PersonRegisterComponent } from './person/register/register.component';
+import { PersonTypeComponent } from './components/person-type/person-type.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
+    PersonListComponent,
+    PersonRegisterComponent,
+    PersonTypeComponent,
     ReversePipe
   ],
   imports: [
@@ -21,11 +27,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-
-
-
-
-
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

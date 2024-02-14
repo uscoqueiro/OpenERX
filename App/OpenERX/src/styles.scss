@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* styles.css */
+.form-container {
+  width: 300px;
+  margin: 20px auto;
+}
+
+.formulario-com-erro {
+ background-color:  #FF0000;
+}
+
+.formulario-ok {
+  background-color:  rgb(7, 235, 7);
+ }
+
+.submitted {
+  background-color: #E0E0E0;
+}
+
+
+.flex {
+  display: flex !important;
+}
+
+.flex-col {
+  flex-direction: column !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+
+.flex-auto {
+  flex: 1 1 auto !important;
+}
+
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.gap-2 {
+  gap: 0.5rem/* 8px */ !important;
+}
+
+
+.px-3 {
+  padding-left: 0.75rem/* 12px */ !important;
+  padding-right: 0.75rem/* 12px */ !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem/* 8px */ !important;
+}
+
+
+.text-red {
+  color: rgb(243, 66, 66);
+}

@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, NgForm, UntypedFormBuilder, UntypedFormGroup, V
 
 export class AppComponent {
 
-  userForm!: FormGroup;
+  // userForm!: FormGroup;
 
   // user = {
   //   email: '',
@@ -25,19 +25,19 @@ export class AppComponent {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.buildForm();
+    // this.buildForm();
   }
 
-  buildForm() {
-    this.userForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      email: ['xpto@gmail.com', [Validators.required, Validators.email]],
-      password: ['232323232323', [Validators.required, Validators.minLength(8)]],
-    });
-  }
+  // buildForm() {
+  //   this.userForm = this.fb.group({
+  //     name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+  //     email: ['xpto@gmail.com', [Validators.required, Validators.email]],
+  //     password: ['232323232323', [Validators.required, Validators.minLength(8)]],
+  //   });
+  // }
 
   send() {
-    console.log(this.userForm?.value.name);
+    // console.log(this.userForm?.value.name);
   }
 
 }

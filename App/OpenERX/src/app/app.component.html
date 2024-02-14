@@ -235,21 +235,25 @@
 
 
 
-
-<form [formGroup]="userForm" (ngSubmit)="send()" class="form-container">
-
-
-  <label for="username">Usuário:</label>
-
-  <input type="text" id="username" formControlName="name">
+<!--
+<form #userForm="ngForm" (ngSubmit)="send()" [class.valid]="userForm.valid" [class.invalid]="userForm.invalid">
 
 
-  <div *ngIf="userForm.get('name')?.hasError('required') &&
-  userForm.get('name')?.touched">Campo obrigatório.</div>
+  <label for="gender">Gênero:</label>
+  <select id="gender" name="gender" [(ngModel)]="user.gender" required>
+    <option value="male">Masculino</option>
+    <option value="female">Feminino</option>
+  </select>
 
-  <div *ngIf="userForm.get('name')?.hasError('minlength') && userForm.get('name')?.touched">Mínimo de 3 caracteres.</div>
-  <div *ngIf="userForm.get('name')?.hasError('maxlength') && userForm.get('name')?.touched">Máximo de 15 caracteres.</div>
 
 
-  <button type="submit" [disabled]="userForm.invalid">Enviar</button>
-</form>
+  <label for="newsletter">Receber Newsletter:</label>
+  <input type="checkbox" id="newsletter" name="newsletter" [(ngModel)]="user.newsletter">
+
+  <button type="submit">Enviar</button>
+
+  <button type="button" (click)="userForm.reset()">Resetar</button>
+</form> -->
+
+
+<router-outlet></router-outlet>

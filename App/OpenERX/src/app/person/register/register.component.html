@@ -1,0 +1,36 @@
+<h1>{{title}}</h1>
+
+<form #form="ngForm">
+  <div class="flex flex-col gap-2">
+
+    <div class="flex flex-col flex-auto   mb-2">
+      <label for="id">Id</label>
+      <input type="text" id="id" name="id" [(ngModel)]="person.id" #id="ngModel">
+      <div *ngIf="id.hasError('required') && id.touched"> Id é Obrigatório
+      </div>
+    </div>
+
+    <div class="flex flex-col flex-auto  mb-2">
+      <label for="name">Nome</label>
+      <input type="text" id="name" name="name" [(ngModel)]="person.name" #name="ngModel" required>
+      <div *ngIf="name.hasError('required') && name.touched" class="text-red"> Id é Obrigatório </div>
+    </div>
+
+    <app-person-type [(ngModel)]="person.type" name="typedxdd" [required]="true" #type="ngModel"   >
+    </app-person-type>
+
+  </div>
+
+  <button type="button" (click)="save()" [disabled]="form.invalid || !person.type">Salvar</button>
+</form>
+
+
+<div>{{person.name}}</div>
+<div style="font-size: 128px;">{{person.type}}</div>
+
+<div style="font-size: 128px;">{{form.valid }}</div>
+
+<div style="font-size: 128px;">{{type.touched }}</div>
+
+
+
