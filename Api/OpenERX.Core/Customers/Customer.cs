@@ -26,6 +26,7 @@ namespace OpenERX.Core.Customers
         public IList<Email> Emails { get; set; }
         public IList<Site> Sites { get; set; }
         public IList<DataField> Fields { get; set; }
+        public IList<string> Images { get; set; }
         public int StatusCode { get; set; }
         public string StatusName { get; set; }
         public DateTime? StatusDate { get; set; }

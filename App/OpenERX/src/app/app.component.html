@@ -1,0 +1,255 @@
+<!-- <button (click)="toggleImg()">toggleImg</button>
+
+
+
+ <input (ngModel)="nome"  />
+
+<input [ngModel]="nome" />
+
+<p>Olá, {{nome}}!</p>
+
+
+<img [src]="imgUrl"  />
+
+
+<button style="background-color: red;">Clique-me</button>
+
+<button [style.backgroundColor]="corDeFundo" (click)="toggleImg()">Clique-me</button> -->
+
+
+<!--
+<app-title [text]="nome"></app-title>
+
+<app-title text="Maria"></app-title>
+
+<input (keyup)="onKeyUp($event)" /> -->
+
+<!-- <button (click)="toggle( )">Clique-me</button> -->
+
+
+<!-- <div *ngIf="flag">
+  Este elemento será exibido se mostrarElemento for verdadeiro.
+</div> -->
+
+<!--
+<input [(ngModel)]="nome" />
+
+<button (click)="add( )">Clique-me</button>
+
+
+<ng-template [ngIf]="true">
+  <ul>
+    <li *ngFor="let item of items">{{ item }}</li>
+  </ul>
+</ng-template>
+
+
+<ng-template ngFor let-item [ngForOf]="items">
+  <li>{{ item }}</li>
+</ng-template>
+
+
+
+<ng-template #h1>
+ <h1> Este elemento será exibido se mostrarElemento for verdadeiro.</h1>
+ <p> Este elemento será exibido se mostrarElemento for verdadeiro.</p>
+</ng-template>
+
+<ng-container [ngTemplateOutlet]="h1" *ngIf="false"></ng-container>
+
+<ng-template [ngIf]="true">
+  <ul>
+    <li *ngFor="let item of items">
+      <ng-container *ngIf="item.length >= 4">  {{ item }}  </ng-container>
+    </li>
+  </ul>
+</ng-template> -->
+
+
+<!--
+<app-title>
+  <h1>{{nome}}</h1>
+  <h1 class="title">Xpto</h1>
+
+  <p>{{note}}</p>
+</app-title> -->
+
+<!-- <p>{{ 'Texto de Exemplo' | reverse | json}}</p>
+<p>{{ 'Texto de Exemplo' | lowercase }}</p>
+<p>{{ data}}</p>
+<p>{{ data| date: 'dd/MM/yyyy HH:mm'}}</p>
+<p>{{ data | date: 'dd/MM/yyyy HH:mm' :'UTC' }}</p> -->
+
+
+
+<!-- <div *ngIf="flag">
+  <p>Bem-vindo, usuário!</p>
+</div>
+
+<div *ngIf="!flag">
+  <p>Faça login para acessar o conteúdo exclusivo.</p>
+</div> -->
+<!--
+<ng-template #flag2>
+  <p>Faça login para acessar o conteúdo exclusivo.</p>
+</ng-template>
+ -->
+
+
+
+<!--
+ <ul>
+  <li *ngFor="let item of items | filter: 'ativo'; let i = index , let f = last">{{ f }} {{ i }} - {{ item }}</li>
+</ul> -->
+
+<!--
+<div [ngSwitch]="type">
+  <p *ngSwitchCase="'admin'">Você tem acesso total.</p>
+  <p *ngSwitchCase="'editor'">Você pode editar conteúdo.</p>
+  <p *ngSwitchDefault>Você tem permissões padrão.</p>
+</div> -->
+
+<!--
+
+<div>Value: {{user.name}}</div>
+
+<div>Value: {{ctlName.value}}</div>
+<div>Valid: {{ctlName.valid}}</div>
+<div>Dirty: {{ctlName.dirty}}</div>
+<div>Touched: {{ctlName.touched}}</div>
+
+ -->
+
+
+<!--
+<form #form="ngForm">
+  <label for="name">Nome:</label>
+  <input type="text" [(ngModel)]="user.name" name="name" required #ctlName="ngModel">
+
+
+</form>
+<button (click)="send()">Send</button> -->
+
+<!--
+
+<form #userForm="ngForm" (ngSubmit)="send()">
+  <label for="username">Usuário:</label>
+  <input type="text" id="username" name="username" [(ngModel)]="user.name" required>
+
+  <label for="email">E-mail:</label>
+  <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+
+  <button type="submit">Enviar</button>
+</form> -->
+
+
+<!-- <form #userForm="ngForm" (ngSubmit)="send()">
+  <label for="username">Usuário:</label>
+  <input type="text" id="username" name="username"
+  [(ngModel)]="user.name" required minlength="3" maxlength="15" #ctlName="ngModel">
+
+  <div *ngIf="ctlName.invalid && (ctlName.dirty || ctlName.touched)">
+    <div *ngIf="ctlName.hasError('required')" style="color: red;">Campo obrigatório.</div>
+    <div *ngIf="ctlName.hasError('minlength')" style="color: red;">Mínimo de 3 caracteres.</div>
+    <div *ngIf="ctlName.hasError('maxlength')" style="color: red;">Máximo de 15 caracteres.</div>
+ </div>
+
+  <label for="email">E-mail:</label>
+  <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+
+  <button type="submit" [disabled]="userForm.invalid">Enviar</button>
+</form> -->
+
+
+
+<!--
+<form #userForm="ngForm" (ngSubmit)="send()">
+  <div ngModelGroup="personalInfo">
+    <label for="username">Usuário:</label>
+    <input type="text" id="username" name="username" [(ngModel)]="user.personalInfo.username" required>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="user.personalInfo.email" required>
+  </div>
+
+  <div ngModelGroup="address">
+    <label for="street">Rua:</label>
+    <input type="text" id="street" name="street" [(ngModel)]="user.address.street" required>
+
+    <label for="city">Cidade:</label>
+    <input type="text" id="city" name="city" [(ngModel)]="user.address.city" required>
+  </div>
+
+  <button type="submit">Enviar</button>
+</form> -->
+
+
+<!--
+<form #userForm="ngForm" (ngSubmit)="send()"
+ [class.valid]="userForm.valid"
+ [class.invalid]="userForm.invalid"
+ >
+
+
+  <label for="gender">Gênero:</label>
+  <select id="gender" name="gender" [(ngModel)]="user.gender" required>
+    <option value="male">Masculino</option>
+    <option value="female">Feminino</option>
+  </select>
+
+
+
+  <label for="newsletter">Receber Newsletter:</label>
+  <input type="checkbox" id="newsletter" name="newsletter" [(ngModel)]="user.newsletter">
+
+  <button type="submit">Enviar</button>
+
+  <button type="button" (click)="userForm.reset()">Resetar</button>
+</form>
+
+
+ -->
+
+
+
+<!--
+
+ <form [formGroup]="userForm" (ngSubmit)="send()" class="form-container">
+
+
+  <label for="username">Usuário:</label>
+
+  <input type="text" id="username" formControlName="name">
+
+
+  <div *ngIf="userForm.get('name')?.hasError('required') &&
+  userForm.get('name')?.touched">Campo obrigatório.</div>
+
+  <div *ngIf="userForm.get('name')?.hasError('minlength') && userForm.get('name')?.touched">Mínimo de 3 caracteres.</div>
+  <div *ngIf="userForm.get('name')?.hasError('maxlength') && userForm.get('name')?.touched">Máximo de 15 caracteres.</div>
+
+
+  <button type="submit" [disabled]="userForm.invalid">Enviar</button>
+</form> -->
+
+
+
+
+
+<form [formGroup]="userForm" (ngSubmit)="send()" class="form-container">
+
+
+  <label for="username">Usuário:</label>
+
+  <input type="text" id="username" formControlName="name">
+
+
+  <div *ngIf="userForm.get('name')?.hasError('required') &&
+  userForm.get('name')?.touched">Campo obrigatório.</div>
+
+  <div *ngIf="userForm.get('name')?.hasError('minlength') && userForm.get('name')?.touched">Mínimo de 3 caracteres.</div>
+  <div *ngIf="userForm.get('name')?.hasError('maxlength') && userForm.get('name')?.touched">Máximo de 15 caracteres.</div>
+
+
+  <button type="submit" [disabled]="userForm.invalid">Enviar</button>
+</form>

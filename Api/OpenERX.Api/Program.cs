@@ -22,6 +22,7 @@ builder.Services.AddTransient<SqlConnectionProvider>(_ => new SqlConnectionProvi
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
 builder.Services.AddTransient<ICustomerService, CustomerService>();
 builder.Services.AddTransient<ISignInService, SignInService>();
+builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
 
 var key = Encoding.ASCII.GetBytes(Settings.Secret);

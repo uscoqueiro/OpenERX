@@ -10,16 +10,16 @@ using OpenERX.Repositories.Shared.Sql;
 
 namespace OpenERX.Repositories.Customers
 {
-    public class CustomerRepository : ICustomerRepository
+    public class CustomerImageRepository 
     {
         private readonly SqlConnectionProvider connectionProvider;
 
-        public CustomerRepository(SqlConnectionProvider connectionProvider)
+        public CustomerImageRepository(SqlConnectionProvider connectionProvider)
         {
             this.connectionProvider = connectionProvider;
         }
 
-        public async Task<Customer> InsertAsync(Customer customer)
+        public async Task<string> InsertByCustomerAsync(Guid customerId, IList<string> urls)
         {
             var commandText = new StringBuilder()
                 .AppendLine(" INSERT INTO [tb_customer]")
@@ -176,112 +176,8 @@ namespace OpenERX.Repositories.Customers
 
             return customer;
         }
-
-        public async Task<long> UpdateAsync(Customer customer)
-        {
-            var commandText = new StringBuilder()
-            .AppendLine(" UPDATE [tb_customer]")
-            .AppendLine(" SET")
-            .AppendLine(" [id] = @id,")
-            .AppendLine(" [code] = @code,")
-            .AppendLine(" [type_code] = @type_code,")
-            .AppendLine(" [type_name] = @type_name,")
-            .AppendLine(" [name] = @name,")
-            .AppendLine(" [nickname] = @nickname,")
-            .AppendLine(" [display] = @display,")
-            .AppendLine(" [birth_date] = @birth_date,")
-            .AppendLine(" [person_type_code] = @person_type_code,")
-            .AppendLine(" [person_type_name] = @person_type_name,")
-            .AppendLine(" [identity] = @identity,")
-            .AppendLine(" [external_code] = @external_code,")
-            .AppendLine(" [status_code] = @status_code,")
-            .AppendLine(" [status_name] = @status_name,")
-            .AppendLine(" [status_date] = @status_date,")
-            .AppendLine(" [status_color] = @status_color,")
-            .AppendLine(" [status_note] = @status_note,")
-            .AppendLine(" [origin_id] = @origin_id,")
-            .AppendLine(" [origin_code] = @origin_code,")
-            .AppendLine(" [origin_name] = @origin_name,")
-            .AppendLine(" [note] = @note,")
-            .AppendLine(" [account_id] = @account_id,")
-            .AppendLine(" [account_code] = @account_code,")
-            .AppendLine(" [account_name] = @account_name,")
-            .AppendLine(" [store_id] = @store_id,")
-            .AppendLine(" [store_code] = @store_code,")
-            .AppendLine(" [store_name] = @store_name,")
-            .AppendLine(" [broker_id] = @broker_id,")
-            .AppendLine(" [broker_code] = @broker_code,")
-            .AppendLine(" [broker_name] = @broker_name,")
-            .AppendLine(" [creation_date] = @creation_date,")
-            .AppendLine(" [creation_user_id] = @creation_user_id,")
-            .AppendLine(" [creation_user_name] = @creation_user_name,")
-            .AppendLine(" [change_date] = @change_date,")
-            .AppendLine(" [change_user_id] = @change_user_id,")
-            .AppendLine(" [change_user_name] = @change_user_name,")
-            .AppendLine(" [exclusion_date] = @exclusion_date,")
-            .AppendLine(" [exclusion_user_id] = @exclusion_user_id,")
-            .AppendLine(" [exclusion_user_name] = @exclusion_user_name,")
-            .AppendLine(" [record_status_code] = @record_status_code,")
-            .AppendLine(" [record_status_name] = @record_status_name,")
-            .AppendLine(" [version_id] = @version_id,")
-            .AppendLine(" [previous_id] = @previous_id,")
-            .AppendLine(" [version_date] = @version_date")
-            .AppendLine(" WHERE [id] = @id");
-
-            await using var cn = await this.connectionProvider.CreateConnectionAsync();
-            await using var cm = cn.CreateCommand();
-
-            cm.CommandText = commandText.ToString();
-
-            cm.Parameters.Add(new SqlParameter("@id", customer.Id.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@code", customer.Code.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@type_code", customer.TypeCode.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@type_name", customer.TypeName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@name", customer.Name.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@nickname", customer.Nickname.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@display", customer.Display.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@birth_date", customer.BirthDate.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@person_type_code", customer.PersonTypeCode.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@person_type_name", customer.PersonTypeName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@identity", customer.Identity.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@external_code", customer.ExternalCode.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@status_code", customer.StatusCode.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@status_name", customer.StatusName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@status_date", customer.StatusDate.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@status_color", customer.StatusColor.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@status_note", customer.StatusNote.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@origin_id", customer.OriginId.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@origin_code", customer.OriginCode.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@origin_name", customer.OriginName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@note", customer.Note.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@account_id", customer.AccountId.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@account_code", customer.AccountCode.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@account_name", customer.AccountName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@store_id", customer.StoreId.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@store_code", customer.StoreCode.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@store_name", customer.StoreName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@broker_id", customer.BrokerId.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@broker_code", customer.BrokerCode.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@broker_name", customer.BrokerName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@creation_date", customer.CreationDate.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@creation_user_id", customer.CreationUserId.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@creation_user_name", customer.CreationUserName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@change_date", customer.ChangeDate.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@change_user_id", customer.ChangeUserId.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@change_user_name", customer.ChangeUserName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@exclusion_date", customer.ExclusionDate.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@exclusion_user_id", customer.ExclusionUserId.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@exclusion_user_name", customer.ExclusionUserName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@record_status_code", customer.RecordStatusCode.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@record_status_name", customer.RecordStatusName.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@version_id", customer.VersionId.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@previous_id", customer.PreviousId.GetDbValue()));
-            cm.Parameters.Add(new SqlParameter("@version_date", customer.VersionDate.GetDbValue()));
-
-            return await cm.ExecuteNonQueryAsync() ;
-        }
-
-        public async Task<long> DeleteAsync(Guid id)
+ 
+        public async Task<long> DeleteByCustomerAsync(Guid customerId)
         {
             var commandText = new StringBuilder()
             .AppendLine(" DELETE FROM [tb_customer]")
@@ -297,7 +193,7 @@ namespace OpenERX.Repositories.Customers
             return await cm.ExecuteNonQueryAsync()  ;
         }
  
-        public async Task<Customer> GetAsync(Guid id)
+        public async Task<IList<string>> GetByCustomerAsync(Guid customerId)
         {
             var commandText = GetFullQuery() 
             .AppendLine(" WHERE [id] = @id");
